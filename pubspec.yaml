@@ -1,0 +1,25 @@
+name: fun2route
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  animations: ^2.2.0
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.3.0
+  google_fonts: ^8.1.0
+  google_maps_flutter: ^2.17.0
+  lucide_icons: ^0.257.0
+  provider: ^6.1.5+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
