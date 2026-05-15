@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:fun2route/theme.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:fun2route/providers/route_provider.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
@@ -18,17 +21,39 @@ class HistoryScreen extends StatelessWidget {
         ),
         title: const Text('Activity History', style: TextStyle(color: KineticFlowTheme.onSurface)),
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(24),
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return _buildHistoryItem(
-            context,
-            'Morning Run #${5 - index}',
-            'May ${14 - index}, 2026',
-            '${8.4 + index}.2 km',
-            '${45 + index} min',
-            index,
+      body: Consumer<RouteProvider>(
+        builder: (context, provider, child) {
+          if (provider.history.isEmpty) {
+            return const Center(child: Text('No activities yet. Start running!'));
+          }
+          return ListView.builder(
+            padding: const EdgeInsets.all(24),
+            itemCount: provider.history.length,
+            itemBuilder: (context, index) {
+              final item = provider.history[index];
+              return InkWell(
+                onTap: () {
+                  final polylineData = item['polyline'] as List?;
+                  final List<LatLng> polyline = polylineData?.map((e) => e as LatLng).toList() ?? [];
+                  provider.setActiveRoute(RouteCandidate(
+                    id: 'history_${index}',
+                    distanceM: 0,
+                    durationSec: 0,
+                    polyline: polyline,
+                    requestedWaypoints: polyline.isNotEmpty ? [polyline.first, polyline.last] : [],
+                  ));
+                  Navigator.pushNamed(context, '/route_selection');
+                },
+                child: _buildHistoryItem(
+                  context,
+                  item['title'],
+                  item['date'],
+                  item['distance'],
+                  item['time'],
+                  index,
+                ),
+              );
+            },
           );
         },
       ),

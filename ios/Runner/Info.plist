@@ -66,5 +66,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location when open to show your position on the map and generate routes.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs access to location even when in the background to track your progress during a run.</string>
 </dict>
 </plist>
