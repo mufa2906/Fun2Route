@@ -42,10 +42,7 @@ class KineticFlowTheme {
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
-        bodyLarge: GoogleFonts.inter(
-          fontSize: 18,
-          fontWeight: FontWeight.w400,
-        ),
+        bodyLarge: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w400),
         bodyMedium: GoogleFonts.inter(
           fontSize: 16,
           fontWeight: FontWeight.w400,
@@ -61,9 +58,7 @@ class KineticFlowTheme {
           backgroundColor: primary,
           foregroundColor: onPrimary,
           minimumSize: const Size.fromHeight(56),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           textStyle: GoogleFonts.inter(
             fontWeight: FontWeight.bold,
             fontSize: 16,
@@ -74,8 +69,8 @@ class KineticFlowTheme {
   }
 
   static TextStyle get statsXl => GoogleFonts.inter(
-        fontSize: 40,
-        fontWeight: FontWeight.w800,
-        color: onSurface,
-      );
+    fontSize: 40,
+    fontWeight: FontWeight.w800,
+    color: onSurface,
+  );
 }

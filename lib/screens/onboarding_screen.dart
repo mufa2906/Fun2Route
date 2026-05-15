@@ -40,12 +40,13 @@ class OnboardingScreen extends StatelessWidget {
               Text(
                 'Automated route generator for high-performance fitness. Energy, precision, and motivation.',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: KineticFlowTheme.onSurfaceVariant,
-                    ),
+                  color: KineticFlowTheme.onSurfaceVariant,
+                ),
               ),
               const SizedBox(height: 48),
               ElevatedButton(
-                onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, '/home'),
                 child: const Text('Get Started'),
               ),
               const SizedBox(height: 24),
